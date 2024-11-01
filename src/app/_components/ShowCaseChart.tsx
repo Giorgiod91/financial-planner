@@ -1,7 +1,7 @@
 "use client";
 
 import { TrendingUp } from "lucide-react";
-import { Label, Pie, PieChart } from "recharts";
+import { Label, Pie, PieChart, Cell } from "recharts";
 import {
   Card,
   CardContent,
@@ -11,51 +11,28 @@ import {
   CardTitle,
 } from "../../components/ui/card";
 import {
-  ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from "../../components/ui/chart";
 import React from "react";
 
-//defining the Chart data here for my chart hard coding for now but loater using actual data from the db
-
+// Defining the chart data with colors
 const chartData = [
-  {
-    month: "June",
-    phone: 40,
-    internet: 39,
-    CarLeasing: 149,
-    netflix: 14,
-    prime: 9,
-  },
+  { name: "Phone", price: 40, fill: "#ff6384" },
+  { name: "Internet", price: 39, fill: "#36a2eb" },
+  { name: "Car Leasing", price: 149, fill: "#ffce56" },
+  { name: "Netflix", price: 14, fill: "#4bc0c0" },
+  { name: "Prime", price: 9, fill: "#9966ff" },
 ];
 
+// Example chart configuration, adjust as necessary
 const chartConfig = {
-  visitors: {
-    label: "Visitors",
+  price: {
+    label: "price",
+    color: "#2563eb",
   },
-  chrome: {
-    label: "Chrome",
-    color: "hsl(var(--chart-1))",
-  },
-  safari: {
-    label: "Safari",
-    color: "hsl(var(--chart-2))",
-  },
-  firefox: {
-    label: "Firefox",
-    color: "hsl(var(--chart-3))",
-  },
-  edge: {
-    label: "Edge",
-    color: "hsl(var(--chart-4))",
-  },
-  other: {
-    label: "Other",
-    color: "hsl(var(--chart-5))",
-  },
-} satisfies ChartConfig;
+};
 
 export const currentMonth = new Date().getMonth();
 
@@ -71,18 +48,25 @@ function ShowCaseChart() {
           config={chartConfig}
           className="mx-auto aspect-square max-h-[250px]"
         >
-          <PieChart>
+          <PieChart width={250} height={250}>
+            {" "}
+            {/* Adjusted dimensions */}
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
             <Pie
               data={chartData}
-              dataKey="visitors"
-              nameKey="browser"
+              dataKey="price"
+              nameKey="name"
               innerRadius={60}
+              outerRadius={80}
+              stroke="#fff" // Optional: White border for the segments
               strokeWidth={5}
             >
+              {chartData.map((entry, index) => (
+                <Cell key={`cell-${index}`} fill={entry.fill} />
+              ))}
               <Label
                 content={({ viewBox }) => {
                   if (viewBox && "cx" in viewBox && "cy" in viewBox) {
@@ -98,7 +82,7 @@ function ShowCaseChart() {
                           y={viewBox.cy}
                           className="fill-foreground text-3xl font-bold"
                         >
-                          {currentMonth.toLocaleString()}
+                          {currentMonth + 1} {/* Month is 0-indexed */}
                         </tspan>
                         <tspan
                           x={viewBox.cx}
@@ -110,6 +94,7 @@ function ShowCaseChart() {
                       </text>
                     );
                   }
+                  return null; // Ensure something is returned if the viewBox is not valid
                 }}
               />
             </Pie>
