@@ -1,29 +1,32 @@
-# Create T3 App
+# Personal Financial Planner 💰
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+A web application for tracking, analyzing, and managing personal finances. Users can view their spending patterns, set budgets, track goals, and get financial insights on a customizable dashboard.
 
-## What's next? How do I make an app with this?
+## Features 📋
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- **Dashboard Overview** 📊  
+  Personalized dashboard for users to view recent transactions, monthly spending, and budget progress.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+- **Spending Analytics** 📉  
+  Interactive charts and graphs to visualize spending by category, timeframe, and more.
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- **Budgeting Tools** 💼  
+  Monthly and yearly budgets to help users manage finances, complete with progress indicators.
 
-## Learn More
+- **Spending Alerts and Notifications** 🔔  
+  Users receive alerts when they exceed budget limits or approach spending thresholds. Alerts are sent via email and in-app notifications.
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+---
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## Technology Stack 🚀
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+### Frontend 🌐
 
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- **Next.js** ✨: Full-stack React framework for fast, server-side rendered pages.
+- **React** ⚛️: JavaScript library for building dynamic user interfaces.
+- **TypeScript** 🟦: Adds static typing for more reliable code.
+- **tRPC** 🛠️: End-to-end typesafe APIs, simplifying frontend-backend communication.
+- **Prisma** 📋: Type-safe ORM for database operations.
+- **Tailwind CSS** 🎨: Utility-first CSS framework for sleek styling.
+- **Shadcn/UI** 🧩: Reusable components for streamlined UI development.
+- **Framer Motion** 🎥: Animation library to add smooth, interactive transitions.
