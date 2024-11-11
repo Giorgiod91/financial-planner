@@ -38,7 +38,7 @@ export function ShowCaseChart2() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Bar Chart - Multiple</CardTitle>
+        <CardTitle>Monthly Expense Trends</CardTitle>
         <CardDescription>January - June 2024</CardDescription>
       </CardHeader>
       <CardContent>
@@ -64,7 +64,7 @@ export function ShowCaseChart2() {
           Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
         </div>
         <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
+          showing a steady trend over the last six months.
         </div>
       </CardFooter>
     </Card>

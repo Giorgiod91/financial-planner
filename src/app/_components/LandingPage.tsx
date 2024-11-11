@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { TrendingUp } from "lucide-react";
 import { Label, Pie, PieChart } from "recharts";
 import ShowCaseChart from "../_components/ShowCaseChart";
+import { DollarSign, TrendingDown, CheckCircle } from "lucide-react";
+import { PiggyBank, BarChart, Shield } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -29,7 +31,7 @@ function LandingPage({}: Props) {
       <div className="container mx-auto flex h-screen flex-col space-y-10 p-5">
         {/* Text Section */}
         <motion.div
-          className="flex flex-col items-center text-center"
+          className="mb-8 flex flex-col items-center text-center"
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
@@ -40,10 +42,10 @@ function LandingPage({}: Props) {
             animate={{ scale: 1 }}
             transition={{ duration: 0.8, ease: "easeInOut" }}
           >
-            Plan your finance in an Easy Way
+            Plan Your Finances with Ease
           </motion.h1>
           <motion.p
-            className="mb-8 text-2xl text-teal-400 transition-transform duration-300 ease-in-out hover:translate-x-1"
+            className="mb-6 text-2xl text-teal-400 transition-transform duration-300 ease-in-out hover:translate-x-1"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.8 }}
@@ -51,7 +53,7 @@ function LandingPage({}: Props) {
             "Keep track of what to pay"
           </motion.p>
           <motion.button
-            className="btn btn-wide mb-4 rounded-lg bg-teal-400 px-6 py-2 text-lg font-semibold text-gray-800 shadow-lg transition-transform duration-300 ease-in-out hover:scale-110 hover:bg-teal-300"
+            className="btn btn-wide mb-6 rounded-lg bg-teal-400 px-6 py-2 text-lg font-semibold text-gray-800 shadow-lg transition-transform duration-300 ease-in-out hover:scale-110 hover:bg-teal-300"
             whileHover={{
               scale: 1.1,
               boxShadow: "0 0 20px rgba(45, 212, 191, 0.8)",
@@ -59,59 +61,90 @@ function LandingPage({}: Props) {
             transition={{ duration: 0.3 }}
           >
             <a href="#Stats" className="text-gray-800 no-underline">
-              Plan Now! ⚡
+              Start Planning Now! ⚡
             </a>
           </motion.button>
-          <motion.p
-            className="text-sm text-teal-400 transition-transform duration-300 ease-in-out hover:translate-x-1"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
-          >
-            Improve! 🚀
-          </motion.p>
         </motion.div>
 
         {/* Grid Section */}
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
-          {/* First Row: 3 Equal Cells */}
-          <div className="flex items-center justify-center">
-            <Card className="w-full">
-              <CardHeader>
-                <CardTitle>
-                  Cell 1
-                  <ShowCaseChart2 />
-                </CardTitle>
-              </CardHeader>
-              <CardContent>{/* content  */}</CardContent>
-            </Card>
-          </div>
-          <div className="flex items-center justify-center">
-            <Card className="w-full">
-              <CardHeader>
-                <CardTitle>Cell 2</CardTitle>
-              </CardHeader>
-              <CardContent>{/* Your content here */}</CardContent>
-            </Card>
-          </div>
-          <div className="flex items-center justify-center">
-            <Card className="w-full">
-              <CardHeader>
-                <CardTitle>Cell 3</CardTitle>
-              </CardHeader>
-              <CardContent>{/* Your content here */}</CardContent>
-            </Card>
-          </div>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {/* Cell 1 */}
+          <Card className="w-full rounded-lg shadow-md">
+            <CardHeader>
+              <CardTitle className="text-center">Spending Breakdown</CardTitle>
+              <ShowCaseChart2 />
+            </CardHeader>
+          </Card>
 
-          {/* Second Row: One Big Cell */}
+          {/* Cell 2 */}
+          <Card className="w-full rounded-lg shadow-md">
+            <CardHeader>
+              <CardTitle className="text-center">Monthly Summary</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <DollarSign className="h-6 w-6 text-green-500" />
+                  <p>Highest Expense: Car Leasing at $149</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <TrendingDown className="h-6 w-6 text-red-500" />
+                  <p>Lowest Expense: Prime Subscription at $9</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <CheckCircle className="h-6 w-6 text-blue-500" />
+                  <p>Budget-Friendly Month: Under $500 total</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Cell 3 */}
+          <Card className="w-full rounded-lg shadow-md">
+            <CardHeader>
+              <CardTitle className="text-center">Goals & Progress</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <PiggyBank className="h-6 w-6 text-pink-500" />
+                  <p>Savings Goal: 70% complete!</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Shield className="h-6 w-6 text-indigo-500" />
+                  <p>Emergency Fund: $200 to reach target</p>
+                </div>
+                <div className="flex items-center gap-3">
+                  <BarChart className="h-6 w-6 text-orange-500" />
+                  <p>Debt Reduction: 30% complete!</p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Big Cell */}
           <div className="flex items-center justify-center md:col-span-3">
-            <Card className="w-full">
+            <Card className="w-full rounded-lg shadow-lg">
               <CardHeader>
-                <CardTitle>Big Cell</CardTitle>
+                <CardTitle className="text-center">
+                  Financial Overview
+                </CardTitle>
+                <CardDescription className="text-center">
+                  January - June 2024
+                </CardDescription>
               </CardHeader>
               <CardContent>
                 <ShowCaseChart />
               </CardContent>
+              <CardFooter className="text-center text-sm">
+                <p className="text-muted-foreground">
+                  Showing total visitors for the last 6 months
+                </p>
+                <div className="mt-2 flex items-center justify-center gap-2 font-medium leading-none">
+                  Trending up by 5.2% this month{" "}
+                  <TrendingUp className="h-4 w-4 text-green-500" />
+                </div>
+              </CardFooter>
             </Card>
           </div>
         </div>
